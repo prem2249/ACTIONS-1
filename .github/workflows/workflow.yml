@@ -12,3 +12,13 @@ jobs:
 
       - name: Use version
         run: echo "Deploying version ${{ steps.get_version.outputs.version }}"
+
+      - name: Check cache
+        id: cache_check
+        run: echo "cache-hit=false" >> $GITHUB_OUTPUT
+
+      - name: Install dependencies
+        if: ${{ steps.cache_check.outputs.cache-hit != 'true' }}
+        run: npm install
+
+
