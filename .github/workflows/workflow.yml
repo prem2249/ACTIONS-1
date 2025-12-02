@@ -21,7 +21,8 @@ jobs:
         if: ${{ steps.cache_check.outputs.cache-hit != 'true' }}
         run: echo " npm install required"
       - name: checking github output
-        run: echo "${{ steps.cache_check.outputs }}"
+        run: echo "${{ steps.cache_check.outputs.cache-hit }}"
+
 
 
 
