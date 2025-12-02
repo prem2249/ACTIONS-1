@@ -19,6 +19,9 @@ jobs:
 
       - name: Install dependencies
         if: ${{ steps.cache_check.outputs.cache-hit != 'true' }}
-        run: npm install
+        run: echo " npm install required"
+      - name: checking github output
+        run: echo ${{ steps.cache_check.outputs }}
+
 
 
